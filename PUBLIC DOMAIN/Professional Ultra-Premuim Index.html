@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Sammy Mwendwa | Full-Stack Software Engineer</title>
+    <meta name="description" content="Sammy M. Kasango is a proffesssional Software Engineer in Nairobi, Kenya, Specializing in building high-quality, scalable web and Software Solutions." />
+    <meta name="keywords" content="Sammy Kasango, Sammy Mwendwa, Software Enginner, Software Engineer Portfolio, Full-Stack Developer, Web Developer, Nairobi Software Enginner, Kenya Software Enginner, Custom Software Development, Scalable Web Applications." />
+    <meta name="author" content="Engineer Sammy M. Kasango Kenya" />
+
+<!-- FontAwesome for skill icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+
+<style>
+/* ===== Reset & Base ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; scroll-behavior:smooth; }
+body { background:#f5f6fa; color:#333; line-height:1.6; overflow-x:hidden; }
+a { text-decoration:none; }
+img { max-width:100%; display:block; border-radius:10px; }
+
+/* ===== Hero / Header ===== */
+header {
+  position: relative;
+  text-align: center;
+  color: linear-gradient(to right, #1e1e2f, #2c2c44);
+  height: 100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+header canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+header h1, header p, header .btn-cta, nav { position:relative; z-index:1; opacity:0; transform:translateY(20px); }
+header h1 { font-size:3rem; margin-bottom:15px; }
+header p { font-size:1.3rem; color:#00d4ff; margin-bottom:30px; }
+header .typing { border-right:2px solid #00d4ff; padding-right:3px; }
+header .btn-cta {
+  display:inline-block; padding:14px 30px; background:#00d4ff; color:#1e1e2f; border-radius:8px; font-weight:bold; transition:0.3s;
+}
+header .btn-cta:hover { background:#00a1cc; }
+
+/* ===== Nav ===== */
+/* ===== Navigation Styling Upgrade ===== */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:40px;
+  background:#000; /* Black background */
+  padding:10px 20px;
+  border-radius:10px;
+}
+
+nav a {
+  font-weight:bold;
+  padding:8px 12px;
+  border-radius:5px;
+  transition:0.3s;
+  color:#fff; /* White text */
+}
+
+nav a:hover {
+  background:#fff;      /* White background on hover */
+  color:#1e1e2f;        /* Dark text on hover */
+}
+
+/* ===== Sections ===== */
+section { padding:80px 20px; max-width:1100px; margin:0 auto; opacity:0; transform:translateY(30px); transition:0.8s; }
+h2 { font-size:2.5rem; text-align:center; margin-bottom:50px; color:#1e1e2f; position:relative; }
+h2::after { content:''; display:block; width:60px; height:3px; background:#00d4ff; margin:10px auto 0; border-radius:2px; }
+
+/* ===== About ===== */
+#about p { max-width:750px; margin:0 auto; font-size:1.15rem; text-align:center; color:#555; }
+
+/* ===== Skills Grid ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.skill-group {
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.skill-group:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.skill-icon {
+  width:50px;
+  height:50px;
+  margin-bottom:8px;
+}
+
+.bg-red { background:#e74c3c; }
+.bg-blue { background:#3498db; }
+.bg-green { background:#2ecc71; }
+.bg-yellow { background:#f1c40f; color:#1e1e2f; }
+
+@media(max-width:480px){
+  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); }
+  .skill-icon { width:40px; height:40px; }
+}
+
+/* ===== Projects Container ===== */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* ===== Project Card ===== */
+.project-card {
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* ===== Image Section ===== */
+.project-image {
+  width:100%;
+  overflow:hidden;
+}
+.project-image img {
+  width:100%;
+  height:200px; /* fixed height for uniform cards */
+  object-fit:cover; /* keeps orientation and avoids stretching */
+  transition: transform 0.3s;
+}
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* ===== Content Section ===== */
+.card-content {
+  padding:20px;
+  flex-grow:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.card-content h3 {
+  color:#00d4ff;
+  margin-bottom:10px;
+  font-size:1.4rem;
+}
+.card-content p {
+  color:#555;
+  margin-bottom:15px;
+}
+.project-links a {
+  display:inline-block;
+  margin-right:10px;
+  font-weight:bold;
+  color:#fff;
+  background:#00d4ff;
+  padding:8px 15px;
+  border-radius:5px;
+  transition:0.3s;
+}
+.project-links a:hover {
+  background:#00a1cc;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .project-image img { height:180px; }
+}
+@media(max-width:480px){
+  .projects-container { gap:20px; }
+  .project-image img { height:150px; }
+}
+
+/* ===== Contact ===== */
+#contact { text-align:center; }
+#contact a { display:inline-block; margin:15px; padding:12px 25px; background:#00d4ff; color:#1e1e2f; border-radius:8px; font-weight:bold; transition:0.3s; }
+#contact a:hover { background:#00a1cc; }
+
+/* ===== Footer ===== */
+footer { text-align:center; padding:25px; background:#1e1e2f; color:#ccc; font-size:0.95rem; }
+
+/* ===== Animations ===== */
+.show { opacity:1 !important; transform:translateY(0) !important; }
+header h1.show, header p.show, header .btn-cta.show, nav.show { transition:1s; }
+.project-card.show, section.show, .skill-card.show { transition:0.8s; }
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  header h1 { font-size:2.2rem; }
+  header p { font-size:1.1rem; }
+  .project-card img { height:180px; }
+}
+@media(max-width:480px){
+  header { padding:80px 15px 40px; }
+  nav { gap:15px; margin-top:25px; }
+  .projects-container { gap:20px; }
+  .skills-grid { gap:20px; }
+  .skill-card { padding:20px; }
+  .skill-card h3 { font-size:1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero / Header -->
+<header>
+  <canvas id="particles"></canvas>
+  <h1>Dev. Sammy Mwendwa</h1>
+  <p>I <span class="typing"></span></p>
+  <a class="btn-cta" href="#projects">View My Work</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- About Section -->
+<section id="about">
+  <h2 class="heading">About Me</h2>
+  <p>
+    Sammy M. Kasango is a professional Software Engineer based in Nairobi, Kenya, specializing in the design and development of scalable, secure, and high-performance web and software solutions. With extensive hands-on experience in full-stack development, system architecture, network design, and database management, he builds clean, maintainable systems that prioritize efficiency, reliability, and user-centered design. Sammy is driven by problem-solving, modern engineering practices, and delivering technology solutions that create real-world impact.
+  </p>
+</section>
+
+<!-- ===== Skills Section ===== -->
+<section id="skills">
+  <h2 class="heading">My Skills</h2>
+  <div class="skills-grid">
+
+    <!-- Skill Group 1 - Red Background -->
+    <div class="skill-group bg-red">
+      <ul class="skill-list">
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/react.svg" alt="React" class="skill-icon">
+          <span class="skill-name">React JS</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/vue.svg" alt="Vue" class="skill-icon">
+          <span class="skill-name">Vue</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/tailwindcss-icon.svg" alt="Tailwind" class="skill-icon">
+          <span class="skill-name">Tailwind CSS</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/javascript.svg" alt="JavaScript" class="skill-icon">
+          <span class="skill-name">JavaScript</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skill Group 2 - Blue Background -->
+    <div class="skill-group bg-blue">
+      <ul class="skill-list">
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/php.svg" alt="PHP" class="skill-icon">
+          <span class="skill-name">PHP</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/laravel.svg" alt="Laravel" class="skill-icon">
+          <span class="skill-name">Laravel</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/nodejs-icon.svg" alt="Node.js" class="skill-icon">
+          <span class="skill-name">Node JS</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/express.svg" alt="Express" class="skill-icon">
+          <span class="skill-name">Express JS</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skill Group 3 - Green Background -->
+    <div class="skill-group bg-green">
+      <ul class="skill-list">
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/html-5.svg" alt="HTML5" class="skill-icon">
+          <span class="skill-name">HTML5</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/redis.svg" alt="Redis" class="skill-icon">
+          <span class="skill-name">Redis</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/mysql-icon.svg" alt="MySQL" class="skill-icon">
+          <span class="skill-name">MySQL</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/laravel.svg" alt="Breeze" class="skill-icon">
+          <span class="skill-name">Breeze</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skill Group 4 - Yellow Background -->
+    <div class="skill-group bg-yellow">
+      <ul class="skill-list">
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/python.svg" alt="Python" class="skill-icon">
+          <span class="skill-name">PyQt5 / Python</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/jetbrains.svg" alt="JetBrains" class="skill-icon">
+          <span class="skill-name">JetBrains</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/git-icon.svg" alt="Git" class="skill-icon">
+          <span class="skill-name">Git</span>
+        </li>
+        <li class="skill-item">
+          <img src="https://api.iconify.design/logos/github-icon.svg" alt="GitHub" class="skill-icon">
+          <span class="skill-name">GitHub</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects-container">
+
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/healthcare_dashboard.jpg" alt="Healthcare Dashboard">
+      </div>
+      <div class="card-content">
+        <h3>Healthcare Dashboard</h3>
+        <p>HTML, CSS, JavaScript</p>
+        <div class="project-links">
+          <a href="#" target="_blank">Live Demo</a>
+          <a href="#" target="_blank">Source Code</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/church_union_system.png" alt="Church Union System">
+      </div>
+      <div class="card-content">
+        <h3>Church Union System</h3>
+        <p>Python, Django</p>
+        <div class="project-links">
+          <a href="#" target="_blank">Live Demo</a>
+          <a href="#" target="_blank">Source Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/personal_website.jpg" alt="Portfolio Website">
+      </div>
+      <div class="card-content">
+        <h3>Portfolio Website</h3>
+        <p>HTML, CSS, JavaScript</p>
+        <div class="project-links">
+          <a href="#" target="_blank">Live Demo</a>
+          <a href="#" target="_blank">Source Code</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <a href="mailto:kasangosammy@gmail.com">Email</a>
+  <a href="https://www.linkedin.com/in/sammy-kasango-91287a37b?utm_source=share&utm_campaign=share_via&utm_content=profile&" target="_blank">LinkedIn</a>
+  <a href="https://github.com/sammy-mwendwa" target="_blank">GitHub</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Sammy Mwendwa. All Rights Reserved.
+</footer>
+
+<script>
+// ===== Scroll-triggered animations =====
+const sections = document.querySelectorAll('section, .project-card, .skill-card, header h1, header p, header .btn-cta, nav');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('show'); } });
+},{ threshold:0.15 });
+sections.forEach(sec => observer.observe(sec));
+
+// ===== Animate Skill Bars =====
+const skillCards = document.querySelectorAll('.skill-card');
+const skillObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      const bars = entry.target.querySelectorAll('.bar-fill');
+      bars.forEach(bar => {
+        bar.style.width = bar.getAttribute('data-level');
+      });
+    }
+  });
+},{threshold:0.3});
+skillCards.forEach(card => skillObserver.observe(card));
+
+// ===== Dynamic Typing Effect =====
+const typingElement = document.querySelector('.typing');
+const words = ['build websites','create apps','solve problems','design solutions','craft experiences'];
+let wordIndex = 0, letterIndex = 0, currentWord = '', isDeleting = false;
+const typeSpeed=100, deleteSpeed=50, delayBetweenWords=1500;
+function type() {
+  if(wordIndex>=words.length) wordIndex=0;
+  currentWord=words[wordIndex];
+  if(!isDeleting){ typingElement.textContent=currentWord.substring(0,letterIndex+1); letterIndex++;
+    if(letterIndex===currentWord.length){ isDeleting=true; setTimeout(type,delayBetweenWords); return; }
+  } else { typingElement.textContent=currentWord.substring(0,letterIndex-1); letterIndex--;
+    if(letterIndex===0){ isDeleting=false; wordIndex++; }
+  }
+  setTimeout(type,isDeleting?deleteSpeed:typeSpeed);
+}
+document.addEventListener('DOMContentLoaded',()=>{ type(); });
+
+// ===== Particle Background =====
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const particlesArray = [];
+class Particle{
+  constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.size=Math.random()*2+1; this.speedX=Math.random()*1-0.5; this.speedY=Math.random()*1-0.5; }
+  update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x>canvas.width)this.x=0; if(this.x<0)this.x=canvas.width; if(this.y>canvas.height)this.y=0; if(this.y<0)this.y=canvas.height; }
+  draw(){ ctx.fillStyle='rgba(0,212,255,0.7)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+}
+function initParticles(){ for(let i=0;i<100;i++)particlesArray.push(new Particle()); }
+function animateParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particlesArray.forEach(p=>{ p.update(); p.draw(); });
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+}
+function connectParticles(){
+  for(let a=0;a<particlesArray.length;a++){
+    for(let b=a;b<particlesArray.length;b++){
+      let dx=particlesArray[a].x-particlesArray[b].x;
+      let dy=particlesArray[a].y-particlesArray[b].y;
+      let distance=Math.sqrt(dx*dx+dy*dy);
+      if(distance<100){
+        ctx.strokeStyle='rgba(0,212,255,0.1)';
+        ctx.lineWidth=1;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[a].x,particlesArray[a].y);
+        ctx.lineTo(particlesArray[b].x,particlesArray[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+initParticles();
+animateParticles();
+</script>
+</body>
+</html>
