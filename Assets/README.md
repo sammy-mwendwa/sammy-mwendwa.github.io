@@ -4,16 +4,16 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=1B3A6B,2E6DA4&height=200&section=header&text=Sammy%20M.%20Kasango&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Software%20%26%20Systems%20Engineer&descAlignY=60&descSize=20&animation=fadeIn" />
 
 <!-- Typing SVG -->
-<a href="https://github.com/SammyKasango">
+<a href="https://github.com/sammy-mwendwa">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=800&color=2E6DA4&center=true&vCenter=true&multiline=false&width=600&lines=Full-Stack+Developer+%F0%9F%9A%80;Systems+%26+Backend+Engineer+%F0%9F%94%A7;API+%26+Database+Architect+%F0%9F%97%84%EF%B8%8F;Open+Source+Contributor+%F0%9F%8C%8D;Always+learning%2C+always+building+%E2%9C%A8" alt="Typing SVG" />
 </a>
 
 <br/><br/>
 
-<!-- Badges -->
-[![Portfolio](https://img.shields.io/badge/Portfolio-linktr.ee%2FSammyKasango-1B3A6B?style=for-the-badge&logo=linktree&logoColor=white)](https://linktr.ee/SammyKasango)
-[![Email](https://img.shields.io/badge/Email-kasangosammy%40gmail.com-2E6DA4?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kasangosammy@gmail.com)
-[![Location](https://img.shields.io/badge/Location-Nairobi%2C%20Kenya-00A86B?style=for-the-badge&logo=googlemaps&logoColor=white)](https://maps.google.com/?q=Nairobi,Kenya)
+<!-- ─── PROFILE BADGES ─── -->
+<p align="left-justify">
+  <a href="https://sammy-mwendwa.github.io" target="_blank"><img src="https://img.shields.io/badge/Portfolio-Visit%20Site-1e3a2f?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio"/></a>&nbsp;<a href="mailto:kasangosammy@gmail.com"><img src="https://img.shields.io/badge/Email-kasangosammy%40gmail.com-b85e1a?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>&nbsp;<img src="https://img.shields.io/badge/Location-Nairobi%2C%20Kenya-2a4f40?style=for-the-badge&logo=google-maps&logoColor=white" alt="Nairobi, Kenya"/>
+</p>
 
 </div>
 
@@ -115,13 +115,13 @@ Currently pursuing a **B.Sc. in Software Engineering** at Murang'a University of
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=SammyKasango&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&title_color=2E6DA4&icon_color=2E6DA4&border_color=1B3A6B"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SammyKasango&layout=compact&langs_count=8&theme=tokyonight&title_color=2E6DA4&border_color=1B3A6B"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=sammy-mwendwa&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&title_color=2E6DA4&icon_color=2E6DA4&border_color=1B3A6B"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sammy-mwendwa&layout=compact&langs_count=8&theme=tokyonight&title_color=2E6DA4&border_color=1B3A6B"/>
 
 </div>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=SammyKasango&theme=tokyonight&ring=2E6DA4&fire=FF6B35&currStreakLabel=2E6DA4&border=1B3A6B" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sammy-mwendwa&theme=tokyonight&ring=2E6DA4&fire=FF6B35&currStreakLabel=2E6DA4&border=1B3A6B" />
 </div>
 
 ---
@@ -146,14 +146,15 @@ Currently pursuing a **B.Sc. in Software Engineering** at Murang'a University of
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/sammy-kasango)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-1B3A6B?style=for-the-badge&logo=linktree&logoColor=white)](https://linktr.ee/SammyKasango)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/sammy-m-kasango-91287a37b?utm_source=share&utm_campaign=share_via&utm_content=profile&" 
+)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-1B3A6B?style=for-the-badge&logo=linktree&logoColor=white)](https://sammy-mwendwa.github.io)
 [![Email](https://img.shields.io/badge/Email-Say%20Hello-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kasangosammy@gmail.com)
 
 <br/>
 
 > *"The best way to predict the future is to build it."*
 >
-> — **Sammy Kasango** 🚀
+> — **Sammy M. Kasango** 🚀
 
 </div>

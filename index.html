@@ -8,403 +8,763 @@
     <meta name="description" content="Sammy M. Kasango is a proffesssional Software Engineer in Nairobi, Kenya, Specializing in building high-quality, scalable web and Software Solutions." />
     <meta name="keywords" content="Sammy Kasango, Sammy Mwendwa, Software Enginner, Software Engineer Portfolio, Full-Stack Developer, Web Developer, Nairobi Software Enginner, Kenya Software Enginner, Custom Software Development, Scalable Web Applications." />
     <meta name="author" content="Engineer Sammy M. Kasango Kenya" />
-
+  
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:ital@0;1&display=swap" rel="stylesheet"/>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
 
-  <!-- Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursor-follower"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+  <div class="cursor-label" id="cursor-label" aria-hidden="true"></div>
 
-  <!-- ===== NAV ===== -->
-  <nav id="navbar">
-    <div class="nav-logo">SK<span>.</span></div>
+  <!-- NAV -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo" aria-label="DevSam Mwendwa">SK<span>.</span></div>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta">Hire Me</a>
+    <a href="#contact" class="nav-cta">
+      <span>Hire Me</span>
+      <span class="cta-dot" aria-hidden="true"></span>
+    </a>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <header id="hero">
-    <div class="hero-bg-text" aria-hidden="true"></div>
+    <div class="hero-bg-text" aria-hidden="true" id="hero-bg-text"></div>
 
-    <div class="hero-left">
+    <div class="hero-left" id="hero-left">
       <div class="hero-eyebrow">
-        <span class="dot"></span>
-        Available for work · 2026
+        <span class="dot" aria-hidden="true"></span>
+        <span class="eyebrow-text">Available for work</span>
+        <span class="eyebrow-sep" aria-hidden="true">·</span>
+        <span>2026</span>
       </div>
-      <h1>
-        <span class="h1-line line 1">Dev Sammy</span>
-        <span class="h1-line line 1"><em>Mwendwa</em></span>
+
+      <!--
+        NAME STRUCTURE — designed for long names.
+        Line 1: First part  (e.g. "DevSammmy")     — large, ink
+        Line 3: Last name   (e.g. "Mwendwa")    — large, forest italic
+
+        The font uses viewport-relative sizing so any name length fits.
+        Each word is its own block with overflow:visible.
+      -->
+      <h1 aria-label="DevSam Mwendwa">
+
+        <!-- Line 1: First name — bold ink -->
+        <span class="h1-word word-first" aria-hidden="true">
+          <span class="letter">D</span><span class="letter">e</span><span class="letter">v</span><span class="letter">S</span><span class="letter">a</span><span class="letter">m</span><span class="letter"></span>my</span>
+        </span>
+
+    
+        <!-- Line 3: Last name — forest italic -->
+        <span class="h1-word word-last" aria-hidden="true">
+          <em><span class="letter">M</span><span class="letter">w</span><span class="letter">e</span><span class="letter">n</span><span class="letter">d</span><span class="letter">w</span><span class="letter">a</span></em>
+        </span>
+<br>
+         <div class="tag-fader-container">
+         <span class="tag-item active">System Software Engineer</span>
+         <span class="tag-item">Network Engineer</span>
+      </div>
+
       </h1>
-      <div class="hero-descriptor">
-        <div class="descriptor-track">
-          <span>Full‑Stack Engineer</span>
-          <span class="sep">·</span>
-          <span>UI Craftsman</span>
-          <span class="sep">·</span>
-          <span>Network Engineer</span>
-          <span class="sep">·</span>
-          <span>Open Source Builder</span>
-          <span class="sep">·</span>
-          <span>Full‑Stack Engineer</span>
-          <span class="sep">·</span>
-          <span>Network Enginner</span>
-          <span class="sep">·</span>
-          <span>UI Craftsman</span>
-          <span class="sep">·</span>
-          <span>Open Source Builder</span>
+
+      <!-- Typewriter role line -->
+      <div class="hero-role-line">
+        <span class="role-prefix">I build</span>
+        <span class="role-typed" id="role-typed" aria-live="polite"></span>
+        <span class="role-cursor" aria-hidden="true">|</span>
+      </div>
+
+      <!-- Ticker -->
+      <div class="hero-descriptor" role="marquee" aria-label="Full-Stack Engineer · UI Craftsman · Open Source Builder">
+        <div class="descriptor-track" aria-hidden="true">
+          <span>Full-Stack Engineer</span><span class="sep">·</span>
+          <span>UI Craftsman</span><span class="sep">·</span>
+          <span>Open Source Builder</span><span class="sep">·</span>
+          <span>Full-Stack Engineer</span><span class="sep">·</span>
+          <span>UI Craftsman</span><span class="sep">·</span>
+          <span>Open Source Builder</span><span class="sep">·</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-right">
-      <p class="hero-bio">Crafting digital products that balance <em>technical excellence</em> with genuine user delight. 5+ years turning complex problems into elegant software.</p>
-      <a href="#projects" class="btn-primary">
-        <span>See My Work</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="hero-right" id="hero-right">
+      <p class="hero-bio">Crafting digital products that balance <em>technical excellence</em> with genuine user delight. 3+ years turning complex problems into elegant software.</p>
+
+      <!-- Featured project strip -->
+      <a href="#project-devtrack" class="hero-featured" tabindex="0">
+        <div class="hf-label">★ Featured</div>
+        <div class="hf-content">
+          <div class="hf-project">
+            <span class="hf-name">DevTrack</span>
+            <span class="hf-metric">500+ teams · Issue resolution time ↓ 40%</span>
+          </div>
+          <span class="hf-arrow" aria-hidden="true">↗</span>
+        </div>
+        <div class="hf-shimmer" aria-hidden="true"></div>
       </a>
-      <div class="hero-stats">
-        <div class="hstat"><strong>30+</strong><span>Projects</span></div>
-        <div class="hstat-div"></div>
-        <div class="hstat"><strong>3+</strong><span>Years</span></div>
-        <div class="hstat-div"></div>
-        <div class="hstat"><strong>10k+</strong><span>GitHub Stars</span></div>
+
+      <a href="#projects" class="btn-primary" id="btn-cta">
+        <span>See My Work</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span class="btn-ripple" aria-hidden="true"></span>
+      </a>
+
+      <!-- Count-up stats -->
+      <div class="hero-stats" role="list">
+        <div class="hstat" role="listitem">
+          <strong class="count-up" data-target="30" data-suffix="+">0</strong>
+          <span>Projects Shipped</span>
+        </div>
+        <div class="hstat-div" aria-hidden="true"></div>
+        <div class="hstat" role="listitem">
+          <strong class="count-up" data-target="3" data-suffix="+">0</strong>
+          <span>Years Exp.</span>
+        </div>
+        <div class="hstat-div" aria-hidden="true"></div>
+        <div class="hstat" role="listitem">
+          <strong class="count-up" data-target="12" data-suffix="k+">0</strong>
+          <span>GitHub Stars</span>
+        </div>
       </div>
     </div>
 
-    <div class="hero-scroll">
+    <div class="hero-scroll" aria-hidden="true">
       <div class="scroll-line"></div>
       <span>Scroll</span>
     </div>
 
-    <div class="hero-badge" aria-hidden="true">
-      <svg viewBox="0 0 100 100" class="badge-ring" width="100" height="100">
+    <!-- Rotating badge -->
+    <div class="hero-badge" aria-hidden="true" id="hero-badge">
+      <svg viewBox="0 0 100 100" class="badge-ring" width="110" height="110">
         <path id="badge-text-path" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/>
         <text font-size="10.5" fill="currentColor" letter-spacing="3.5" font-family="Courier Prime">
-          <textPath href="#badge-text-path">SOFTWARE ENGINEER · OPEN SOURCE ·</textPath>
+          <textPath href="#badge-text-path">FULL-STACK ENGINEER · OPEN SOURCE ·</textPath>
         </text>
       </svg>
       <span class="badge-center">✦</span>
     </div>
   </header>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-heading">
     <div class="about-grid">
       <div class="about-left reveal">
-        <div class="section-num">01</div>
-        <div class="avatar-box">
-          <div class="avatar-initials">SK</div>
-          <div class="avatar-tag">Based in Nairobi Kenya</div>
+        <div class="section-num" aria-hidden="true"></div>
+        <div class="avatar-box tilt-card" id="avatar-box">
+          <div class="tilt-inner">
+            <div class="avatar-glow" aria-hidden="true"></div>
+            <div class="avatar-initials" aria-label="Alex Chen">SK</div>
+            <div class="avatar-tag">Nairobi, Kenya</div>
+            <div class="avatar-status">
+              <span class="status-dot" aria-hidden="true"></span>
+              Open to opportunities
+            </div>
+          </div>
         </div>
-        <div class="about-decoration">
-          <span>Software System Engineer</span>
+        <div class="about-decoration" aria-hidden="true">
+          <span>System Architect</span>
           <div class="deco-line"></div>
-          <span>Network-Enginner</span>
+          <span>Full Stack</span>
         </div>
       </div>
+
       <div class="about-right reveal reveal-delay-1">
-        <h2 class="section-title">Turning ideas into<br/><em>living software</em></h2>
-        <p>I'm a software engineer who genuinely loves the craft — from designing clean APIs to pixel-perfect interfaces. My work sits at the intersection of engineering rigor and thoughtful UX.</p>
-        <p>When I'm not shipping features, I'm contributing to open source projects, writing technical articles, or exploring new paradigms in distributed systems.</p>
-        <div class="about-chips">
-          <span>React</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>AWS</span><span>PostgreSQL</span>
+        <h2 class="section-title" id="about-heading">Where systems<br/><em>meet interfaces</em></h2>
+        <p>I'm a <strong>Full-Stack Engineer</strong> who specialises in building the full vertical — database schema to pixel-perfect UI. My niche: developer-facing products that engineering teams depend on daily.</p>
+        <p>I lead with curiosity, collaborate early and often, and treat code review as a team sport. I've mentored 4 junior engineers, driven cross-functional delivery, and thrive when problems are ambiguous.</p>
+
+        <p class="chips-label">Skills in action — click to see where I used it:</p>
+        <div class="about-chips" role="list">
+          <a href="#project-devtrack"  class="chip" role="listitem" title="DevTrack">React</a>
+          <a href="#project-devtrack"  class="chip" role="listitem" title="DevTrack">TypeScript</a>
+          <a href="#project-pulseapi"  class="chip" role="listitem" title="PulseAPI">Node.js</a>
+          <a href="#project-pulseapi"  class="chip" role="listitem" title="PulseAPI">Python</a>
+          <a href="#project-shopwave"  class="chip" role="listitem" title="Shopwave">AWS</a>
+          <a href="#project-devtrack"  class="chip" role="listitem" title="DevTrack">PostgreSQL</a>
+          <a href="#project-flowci"    class="chip" role="listitem" title="FlowCI">Docker</a>
+          <a href="#project-flowci"    class="chip" role="listitem" title="FlowCI">Kubernetes</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SKILLS ===== -->
-  <section id="skills">
+  <!-- SKILLS -->
+  <section id="skills" aria-labelledby="skills-heading">
     <div class="section-header reveal">
-      <div class="section-num">02</div>
-      <h2 class="section-title">Crafted with<br/><em>the right tools</em></h2>
+      <div class="section-num" aria-hidden="true">02</div>
+      <h2 class="section-title" id="skills-heading">Depth across<br/><em>the full stack</em></h2>
     </div>
     <div class="skills-grid">
 
-      <div class="skill-card reveal">
-        <div class="skill-card-header">
-          <div class="skill-icon-wrap icon-fe">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <div class="skill-card tilt-card reveal">
+        <div class="tilt-inner">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap icon-fe" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Frontend</h3>
           </div>
-          <h3>Frontend</h3>
+          <ul class="skill-items" aria-label="Frontend skills">
+            <li><span class="skill-dot" aria-hidden="true"></span>React & Next.js<span class="skill-level">Expert</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>TypeScript<span class="skill-level">Expert</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>CSS / Tailwind<span class="skill-level">Expert</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Vue.js<span class="skill-level">Advanced</span></li>
+          </ul>
+          <div class="skill-bar-wrap" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Frontend 95%">
+            <div class="skill-bar" style="--w:95%"><span class="skill-bar-shimmer" aria-hidden="true"></span></div>
+          </div>
+          <a href="#project-devtrack" class="skill-project-link">See it in DevTrack →</a>
         </div>
-        <ul class="skill-items">
-          <li><span class="skill-dot"></span>React & Next.js<span class="skill-level">Expert</span></li>
-          <li><span class="skill-dot"></span>TypeScript<span class="skill-level">Expert</span></li>
-          <li><span class="skill-dot"></span>CSS / Tailwind<span class="skill-level">Expert</span></li>
-          <li><span class="skill-dot"></span>Vue.js<span class="skill-level">Advanced</span></li>
-        </ul>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="--w:95%"></div></div>
       </div>
 
-      <div class="skill-card reveal reveal-delay-1">
-        <div class="skill-card-header">
-          <div class="skill-icon-wrap icon-be">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div class="skill-card tilt-card reveal reveal-delay-1">
+        <div class="tilt-inner">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap icon-be" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Backend</h3>
           </div>
-          <h3>Backend</h3>
+          <ul class="skill-items" aria-label="Backend skills">
+            <li><span class="skill-dot" aria-hidden="true"></span>Node.js / Express<span class="skill-level">Expert</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Python / FastAPI<span class="skill-level">Expert</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>PostgreSQL<span class="skill-level">Advanced</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>GraphQL<span class="skill-level">Advanced</span></li>
+          </ul>
+          <div class="skill-bar-wrap" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Backend 88%">
+            <div class="skill-bar" style="--w:88%"><span class="skill-bar-shimmer" aria-hidden="true"></span></div>
+          </div>
+          <a href="#project-pulseapi" class="skill-project-link">See it in PulseAPI →</a>
         </div>
-        <ul class="skill-items">
-          <li><span class="skill-dot"></span>Node.js / Express<span class="skill-level">Expert</span></li>
-          <li><span class="skill-dot"></span>Python / FastAPI<span class="skill-level">Expert</span></li>
-          <li><span class="skill-dot"></span>PostgreSQL<span class="skill-level">Advanced</span></li>
-          <li><span class="skill-dot"></span>GraphQL<span class="skill-level">Advanced</span></li>
-        </ul>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="--w:88%"></div></div>
       </div>
 
-      <div class="skill-card reveal reveal-delay-2">
-        <div class="skill-card-header">
-          <div class="skill-icon-wrap icon-cloud">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
+      <div class="skill-card tilt-card reveal reveal-delay-2">
+        <div class="tilt-inner">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap icon-cloud" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
+            </div>
+            <h3>Cloud & DevOps</h3>
           </div>
-          <h3>Cloud & DevOps</h3>
+          <ul class="skill-items" aria-label="Cloud and DevOps skills">
+            <li><span class="skill-dot" aria-hidden="true"></span>AWS / GCP<span class="skill-level">Advanced</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Docker / K8s<span class="skill-level">Advanced</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>CI/CD Pipelines<span class="skill-level">Expert</span></li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Terraform<span class="skill-level">Intermediate</span></li>
+          </ul>
+          <div class="skill-bar-wrap" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Cloud 82%">
+            <div class="skill-bar" style="--w:82%"><span class="skill-bar-shimmer" aria-hidden="true"></span></div>
+          </div>
+          <a href="#project-flowci" class="skill-project-link">See it in FlowCI →</a>
         </div>
-        <ul class="skill-items">
-          <li><span class="skill-dot"></span>AWS / GCP<span class="skill-level">Advanced</span></li>
-          <li><span class="skill-dot"></span>Docker / K8s<span class="skill-level">Advanced</span></li>
-          <li><span class="skill-dot"></span>CI/CD Pipelines<span class="skill-level">Expert</span></li>
-          <li><span class="skill-dot"></span>Terraform<span class="skill-level">Intermediate</span></li>
-        </ul>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="--w:82%"></div></div>
       </div>
 
     </div>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects">
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="projects-heading">
     <div class="section-header reveal">
-      <div class="section-num">03</div>
-      <h2 class="section-title">Selected<br/><em>projects</em></h2>
+      <div class="section-num" aria-hidden="true">03</div>
+      <h2 class="section-title" id="projects-heading">Work that<br/><em>ships & scales</em></h2>
     </div>
-
     <div class="projects-list">
 
-      <article class="project-item reveal" data-num="01">
+      <article class="project-item reveal" id="project-devtrack" data-num="01" tabindex="0">
         <div class="project-meta">
-          <span class="project-year">2024</span>
+          <span class="project-year">2025</span>
           <span class="project-cat">SaaS · Web App</span>
         </div>
         <div class="project-main">
-          <div class="project-thumb p1"><span>DT</span></div>
+          <div class="project-thumb p1" aria-hidden="true"><span>DT</span></div>
           <div class="project-info">
-            <h3>DevTrack <span class="arrow-badge">↗</span></h3>
-            <p>A real-time issue tracking platform for engineering teams. Drag-and-drop boards, rich-text editing, and native GitHub integration. Serving 500+ active teams.</p>
-            <div class="project-tags">
-              <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>WebSockets</span>
-            </div>
+            <h3>DevTrack <span class="arrow-badge" aria-hidden="true">↗</span></h3>
+            <p>Reduced mean issue-resolution time by <strong>40%</strong> for 500+ engineering teams. Real-time collaborative boards with live presence, conflict-free editing, and zero-config GitHub sync — eliminating context-switching that cost hours per sprint.</p>
+            <div class="project-tags"><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>WebSockets</span></div>
           </div>
         </div>
         <div class="project-links">
-          <a href="#" class="plink plink-live">Live Demo ↗</a>
-          <a href="#" class="plink plink-code">Source Code →</a>
+          <a href="https://devtrack.netlify.app/" class="plink plink-live" target="_blank">Live Demo ↗</a>
+          <a href="https://github.com/sammy-mwendwa" class="plink plink-code" target="_blank">Source Code →</a>
         </div>
       </article>
 
-      <article class="project-item reveal reveal-delay-1" data-num="02">
+      <article class="project-item reveal reveal-delay-1" id="project-pulseapi" data-num="02" tabindex="0">
         <div class="project-meta">
-          <span class="project-year">2024</span>
+          <span class="project-year">2025</span>
           <span class="project-cat">Dev Tools · API</span>
         </div>
         <div class="project-main">
-          <div class="project-thumb p2"><span>PA</span></div>
+          <div class="project-thumb p2" aria-hidden="true"><span>PA</span></div>
           <div class="project-info">
-            <h3>PulseAPI <span class="arrow-badge">↗</span></h3>
-            <p>High-performance API gateway with rate limiting, auth middleware, and a real-time analytics dashboard. Handles 50k+ requests per minute reliably.</p>
-            <div class="project-tags">
-              <span>Python</span><span>FastAPI</span><span>Redis</span><span>Grafana</span>
-            </div>
+            <h3>PulseAPI <span class="arrow-badge" aria-hidden="true">↗</span></h3>
+            <p>API gateway sustaining <strong>50k+ req/min at 99.9% uptime</strong> under Black Friday-scale spikes. Intelligent rate limiting and adaptive caching eliminated cascading failures that previously caused <strong>$20k+/hour</strong> in SLA penalties.</p>
+            <div class="project-tags"><span>Python</span><span>FastAPI</span><span>Redis</span><span>Grafana</span></div>
           </div>
         </div>
         <div class="project-links">
-          <a href="#" class="plink plink-live">Live Demo ↗</a>
-          <a href="#" class="plink plink-code">Source Code →</a>
+          <a href="https://devtools.netlify.app/" class="plink plink-live" target="_blank">Live Demo ↗</a>
+          <a href="https://github.com/sammy-mwendwa" class="plink plink-code" target="_blank">Source Code →</a>
         </div>
       </article>
 
-      <article class="project-item reveal reveal-delay-2" data-num="03">
+      <article class="project-item reveal reveal-delay-2" id="project-shopwave" data-num="03" tabindex="0">
         <div class="project-meta">
-          <span class="project-year">2023</span>
-          <span class="project-cat">E-Commerce · Frontend</span>
+          <span class="project-year">2024</span>
+          <span class="project-cat">E-Commerce</span>
         </div>
         <div class="project-main">
-          <div class="project-thumb p3"><span>SW</span></div>
+          <div class="project-thumb p3" aria-hidden="true"><span>SW</span></div>
           <div class="project-info">
-            <h3>Shopwave <span class="arrow-badge">↗</span></h3>
-            <p>Headless e-commerce storefront with SSR, Stripe payments, and AI-powered recommendations. Achieves a 99+ Lighthouse performance score consistently.</p>
-            <div class="project-tags">
-              <span>Next.js</span><span>Stripe</span><span>AWS</span><span>Tailwind</span>
-            </div>
+            <h3>Shopwave <span class="arrow-badge" aria-hidden="true">↗</span></h3>
+            <p>Cut storefront load time <strong>4.2s → 0.9s</strong> (78% faster) through SSR, image optimisation, and edge caching — lifting conversion <strong>23%</strong> and handling <strong>$2M+/month</strong> in transactions with a 99+ Lighthouse score.</p>
+            <div class="project-tags"><span>Next.js</span><span>Stripe</span><span>AWS</span><span>Tailwind</span></div>
           </div>
         </div>
         <div class="project-links">
-          <a href="#" class="plink plink-live">Live Demo ↗</a>
-          <a href="#" class="plink plink-code">Source Code →</a>
+          <a href="https://shopwave.com" class="plink plink-live" target="_blank">Live Demo ↗</a>
+          <a href="https://github.com/sammy-mwendwa" class="plink plink-code" target="_blank">Source Code →</a>
         </div>
       </article>
 
-      <article class="project-item reveal reveal-delay-3" data-num="04">
+      <article class="project-item reveal reveal-delay-3" id="project-flowci" data-num="04" tabindex="0">
         <div class="project-meta">
           <span class="project-year">2023</span>
           <span class="project-cat">Dev Tools · CI/CD</span>
         </div>
         <div class="project-main">
-          <div class="project-thumb p4"><span>FC</span></div>
+          <div class="project-thumb p4" aria-hidden="true"><span>FC</span></div>
           <div class="project-info">
-            <h3>FlowCI <span class="arrow-badge">↗</span></h3>
-            <p>Lightweight CI/CD orchestration with a visual pipeline builder, Docker container builds, and Kubernetes deployment automation.</p>
-            <div class="project-tags">
-              <span>TypeScript</span><span>Docker</span><span>Kubernetes</span><span>Go</span>
-            </div>
+            <h3>FlowCI <span class="arrow-badge" aria-hidden="true">↗</span></h3>
+            <p>Shrank average deployment cycle <strong>45 min → 8 min</strong> for 200+ teams via parallelised Docker build caching and smart K8s rollout strategies — saving an estimated <strong>6,000 engineering-hours/year</strong> across adopting orgs.</p>
+            <div class="project-tags"><span>TypeScript</span><span>Docker</span><span>Kubernetes</span><span>Go</span></div>
           </div>
         </div>
         <div class="project-links">
-          <a href="#" class="plink plink-live">Live Demo ↗</a>
-          <a href="#" class="plink plink-code">Source Code →</a>
+          <a href="https://flowci.github.io/#/" class="plink plink-live" target="_blank">Live Demo ↗</a>
+          <a href="https://github.com/sammy-mwendwa" class="plink plink-code" target="_blank">Source Code →</a>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section id="contact">
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-heading">
     <div class="contact-wrap">
       <div class="contact-left reveal">
-        <div class="section-num">04</div>
-        <h2 class="section-title contact-title">Let's create<br/><em>something</em><br/>remarkable.</h2>
-        <p>Open to full-time roles, contract work, and interesting open-source collaborations. If you have a project worth building — let's talk.</p>
+        <div class="section-num" aria-hidden="true">04</div>
+        <h2 class="section-title contact-title" id="contact-heading">Let's build<br/><em>something</em><br/>that matters.</h2>
+        <p>Open to full-time roles, contract work, and open-source collaborations. If you have a hard problem worth solving — let's connect.</p>
       </div>
       <div class="contact-right reveal reveal-delay-1">
-        <a href="mailto:kasangosammy@gmail.com" class="contact-card email-card">
-          <div class="cc-icon">✉</div>
-          <div class="cc-text">
-            <strong>Send an Email</strong>
-            <span>kasangosammy@gmail.com</span>
-          </div>
-          <div class="cc-arrow">→</div>
+        <a href="mailto:kasangosammy@.com" class="contact-card email-card">
+          <div class="cc-icon" aria-hidden="true">✉</div>
+          <div class="cc-text"><strong>Send an Email</strong><span class="cc-url">kasangosammy@gmail.com</span></div>
+          <div class="cc-arrow" aria-hidden="true">→</div>
         </a>
-        <a href="https://github.com/sammy-mwendwa" class="contact-card">
-          <div class="cc-icon">⌥</div>
-          <div class="cc-text">
-            <strong>GitHub</strong>
-            <span>github.com/sammy-mwendwa</span>
-          </div>
-          <div class="cc-arrow">→</div>
+        <a href="https://github.com/sammy-mwendwa" class="contact-card" target="_blank" rel="noopener noreferrer">
+          <div class="cc-icon" aria-hidden="true">⌥</div>
+          <div class="cc-text"><strong>GitHub</strong><span class="cc-url">github.com/sammy-mwendwa</span></div>
+          <div class="cc-arrow" aria-hidden="true">→</div>
         </a>
-        <a href="https://www.linkedin.com/in/sammy-kasango-91287a37b?utm_source=share&utm_campaign=share_via&utm_content=profile&" 
-        target="_blank"
-        class="contact-card">
-          <div class="cc-icon">in</div>
-          <div class="cc-text">
-            <strong>LinkedIn</strong>
-            <span>linkedin.com/in/sammy-kasango</span>
-          </div>
-          <div class="cc-arrow">→</div>
+        <a href="https://www.linkedin.com/in/sammy-m-kasango-91287a37b?utm_source=share&utm_campaign=share_via&utm_content=profile&" 
+          class="contact-card" target="_blank" rel="noopener noreferrer">
+          <div class="cc-icon" aria-hidden="true">in</div>
+          <div class="cc-text"><strong>LinkedIn</strong><span class="cc-url">linkedin.com/in/sammy-mwendwa</span></div>
+          <div class="cc-arrow" aria-hidden="true">→</div>
         </a>
-       <a href="/Assets/Sammy_M_Kasango_Resume.pdf" 
-       class="contact-card resume-card" 
-       download="Sammy_M_Kasango_Resume.pdf"
-      target="_blank">
-         <div class="cc-icon">↓</div>
-         <div class="cc-text">
-           <strong>Download Resume</strong>
-            <span>PDF · Updated Feb 2026</span>
-           </div>
-      <div class="cc-arrow">→</div>
+         <a href="Assets/Sammy_M_Kasango_Resume.pdf"
+           class="contact-card resume-card"
+           target="_blank"
+           rel="noopener noreferrer"
+           onclick="
+             const a = document.createElement('a');
+             a.href = this.href;
+             a.download = 'Sammy_M_Kasango_Resume.pdf';
+             a.click();
+           ">
+          <div class="cc-icon" aria-hidden="true">↓</div>
+          <div class="cc-text"><strong>Download Resume</strong><span class="cc-url">PDF · Updated Feb 2026</span></div>
+          <div class="cc-arrow" aria-hidden="true">→</div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
+  <!-- FOOTER -->
+  <footer role="contentinfo">
     <div class="footer-content">
-      <span class="footer-logo">Dev Sam<span>.</span></span>
-      <span class="footer-mid">Designed & built with care · © 2026</span>
+      <span class="footer-logo">DevSam Mwendwa<span aria-hidden="true">.</span></span>
+      <span class="footer-mid">Network and System Software Engineer · Architected for Performance — Crafted for Users · © 2026</span>
       <a href="#hero" class="footer-back">Back to top ↑</a>
     </div>
   </footer>
 
-  <script>
-  // ─── Custom Cursor ──────────────────────────────────────
-  const cur = document.getElementById('cursor');
-  const fol = document.getElementById('cursor-follower');
+<script>
+/* =====================================================
+   UTILITY
+===================================================== */
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
+const isMobile = window.matchMedia('(max-width: 820px)').matches;
+const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* =====================================================
+   PARTICLE CANVAS
+===================================================== */
+const canvas = $('#particle-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+const PARTICLE_COUNT = isMobile ? 40 : 90;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize, { passive: true });
+
+class Particle {
+  constructor() { this.reset(true); }
+  reset(initial = false) {
+    this.x  = Math.random() * W;
+    this.y  = initial ? Math.random() * H : H + 10;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = -(0.25 + Math.random() * 0.55);
+    this.r  = 1.2 + Math.random() * 2;
+    this.alpha = 0.08 + Math.random() * 0.22;
+    this.life = 1;
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.life -= 0.0018;
+    if (this.y < -10 || this.life <= 0) this.reset();
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(184,94,26,${this.alpha * this.life})`;
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+function animParticles() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animParticles);
+}
+if (!noMotion) animParticles();
+
+
+const tags = document.querySelectorAll('.tag-item');
+let currentIndex = 0;
+
+function rotateTags() {
+  const currentTag = tags[currentIndex];
+  
+  // 1. Mark current tag to exit
+  currentTag.classList.remove('active');
+  currentTag.classList.add('exit');
+
+  // 2. Move to next index
+  currentIndex = (currentIndex + 1) % tags.length;
+  const nextTag = tags[currentIndex];
+
+  // 3. Reset the exit tag and activate next
+  setTimeout(() => {
+    currentTag.classList.remove('exit');
+  }, 600); // Matches CSS transition time
+
+  nextTag.classList.add('active');
+}
+
+setInterval(rotateTags, 3000); // 3 seconds interval
+
+/* =====================================================
+   CUSTOM MAGNETIC CURSOR
+===================================================== */
+const cur  = $('#cursor');
+const fol  = $('#cursor-follower');
+const curL = $('#cursor-label');
+const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+if (!isTouchDevice) {
   let mx = -200, my = -200, fx = -200, fy = -200;
+  let tx = -200, ty = -200; // target for magnetic snap
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     cur.style.left = mx + 'px'; cur.style.top = my + 'px';
   });
-  (function animFol() {
-    fx += (mx - fx) * 0.13;
-    fy += (my - fy) * 0.13;
+
+  (function animCursor() {
+    fx = lerp(fx, mx, 0.14);
+    fy = lerp(fy, my, 0.14);
     fol.style.left = fx + 'px'; fol.style.top = fy + 'px';
-    requestAnimationFrame(animFol);
+    requestAnimationFrame(animCursor);
   })();
 
-  document.querySelectorAll('a, button, .project-item, .skill-card, .contact-card').forEach(el => {
+  // Magnetic pull on project thumbs + buttons
+  $$('.project-thumb, .btn-primary, .nav-cta, .hf-arrow').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cur.classList.add('h');
+      fol.classList.add('h');
+      const label = el.dataset.cursorLabel;
+      if (label) { curL.textContent = label; curL.classList.add('show'); }
+    });
+    el.addEventListener('mouseleave', () => {
+      cur.classList.remove('h');
+      fol.classList.remove('h');
+      curL.classList.remove('show');
+    });
+  });
+
+  $$('a:not(.project-thumb):not(.btn-primary):not(.nav-cta), .skill-card, .contact-card').forEach(el => {
     el.addEventListener('mouseenter', () => { cur.classList.add('h'); fol.classList.add('h'); });
     el.addEventListener('mouseleave', () => { cur.classList.remove('h'); fol.classList.remove('h'); });
   });
 
-  // ─── Navbar ──────────────────────────────────────────────
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  }, {passive:true});
+} else {
+  cur?.remove(); fol?.remove(); curL?.remove();
+  document.body.style.cursor = 'auto';
+}
 
-  // ─── Scroll Reveal ───────────────────────────────────────
-  const revEls = document.querySelectorAll('.reveal');
-  function checkReveal() {
-    revEls.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.9) el.classList.add('visible');
+/* =====================================================
+   HERO PARALLAX
+===================================================== */
+if (!isMobile && !noMotion) {
+  const heroLeft  = $('#hero-left');
+  const heroRight = $('#hero-right');
+  const bgText    = $('#hero-bg-text');
+
+  window.addEventListener('mousemove', e => {
+    const rx = (e.clientX / W - 0.5) * 2;
+    const ry = (e.clientY / H - 0.5) * 2;
+    if (heroLeft)  heroLeft.style.transform  = `translate(${rx * -6}px, ${ry * -4}px)`;
+    if (heroRight) heroRight.style.transform = `translate(${rx * 4}px, ${ry * 3}px)`;
+    if (bgText)    bgText.style.transform    = `translate(${rx * 18}px, ${ry * 10}px)`;
+  }, { passive: true });
+}
+
+/* =====================================================
+   3D TILT CARDS
+===================================================== */
+if (!isMobile && !noMotion) {
+  $$('.tilt-card').forEach(card => {
+    const inner = card.querySelector('.tilt-inner');
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
+      const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+      card.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.03)`;
+      if (inner) inner.style.transform = `translateZ(16px)`;
     });
-  }
-  window.addEventListener('scroll', checkReveal, {passive:true});
-
-  // ─── Badge rotation ──────────────────────────────────────
-  let ang = 0;
-  const bRing = document.querySelector('.badge-ring');
-  if (bRing) (function rotateBadge() {
-    ang += 0.35;
-    bRing.style.transform = `rotate(${ang}deg)`;
-    requestAnimationFrame(rotateBadge);
-  })();
-
-  // ─── Skill bars animate on reveal ────────────────────────
-  const sbObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('.skill-bar').forEach(b => b.classList.add('animate'));
-      }
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      if (inner) inner.style.transform = '';
     });
-  }, {threshold: 0.4});
-  document.querySelectorAll('.skill-card').forEach(c => sbObs.observe(c));
-
-  // ─── Init ────────────────────────────────────────────────
-  window.addEventListener('load', () => {
-    ['hero-eyebrow','h1-line line-1','h1-line line-2','hero-descriptor','hero-bio','btn-primary','hero-stats','hero-scroll','hero-badge']
-      .forEach((cls, i) => {
-        const el = document.querySelector('.' + cls.split(' ')[0]);
-        if (el) setTimeout(() => el.classList.add('visible'), 150 + i * 130);
-      });
-
-    document.querySelectorAll('.h1-line').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), 200 + i * 180);
-    });
-    checkReveal();
   });
-  </script>
+}
+
+/* =====================================================
+   TYPEWRITER — role line
+===================================================== */
+const roles = [
+  'full-stack web apps.',
+  'developer tooling.',
+  'high-scale APIs.',
+  'softwares that last.',
+];
+let rIdx = 0, cIdx = 0, deleting = false;
+const typedEl = $('#role-typed');
+
+function typeRole() {
+  if (!typedEl || noMotion) {
+    if (typedEl) typedEl.textContent = roles[0];
+    return;
+  }
+  const word = roles[rIdx];
+  if (!deleting) {
+    typedEl.textContent = word.slice(0, cIdx + 1);
+    cIdx++;
+    if (cIdx === word.length) {
+      deleting = true;
+      return setTimeout(typeRole, 1800);
+    }
+  } else {
+    typedEl.textContent = word.slice(0, cIdx - 1);
+    cIdx--;
+    if (cIdx === 0) {
+      deleting = false;
+      rIdx = (rIdx + 1) % roles.length;
+    }
+  }
+  setTimeout(typeRole, deleting ? 42 : 68);
+}
+
+/* =====================================================
+   COUNT-UP STATS
+===================================================== */
+function animateCount(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const dur    = 1600;
+  const start  = performance.now();
+  function frame(now) {
+    const t = Math.min((now - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (t < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCount(e.target); statObs.unobserve(e.target); }
+  });
+}, { threshold: 0.5 });
+$$('.count-up').forEach(el => statObs.observe(el));
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+const revEls = $$('.reveal');
+function checkReveal() {
+  revEls.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.9)
+      el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', checkReveal, { passive: true });
+
+/* =====================================================
+   ACTIVE NAV
+===================================================== */
+const navLinks = $$('.nav-links a');
+const secs = $$('section[id]');
+window.addEventListener('scroll', () => {
+  let active = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 160) active = s.id; });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active));
+  $('#navbar').classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+/* =====================================================
+   BADGE ROTATION
+===================================================== */
+let ang = 0;
+const bRing = $('.badge-ring');
+if (bRing && !noMotion) (function rotateBadge() {
+  ang += 0.28;
+  bRing.style.transform = `rotate(${ang}deg)`;
+  requestAnimationFrame(rotateBadge);
+})();
+
+/* =====================================================
+   SKILL BAR ANIMATE + SHIMMER
+===================================================== */
+const sbObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-bar').forEach(b => b.classList.add('animate'));
+      sbObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+$$('.skill-card').forEach(c => sbObs.observe(c));
+
+/* =====================================================
+   BUTTON RIPPLE
+===================================================== */
+$$('.btn-primary, .plink-live').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    ripple.className = 'btn-ripple-burst';
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 2;
+    ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size/2}px;top:${e.clientY - rect.top - size/2}px`;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+/* =====================================================
+   PROJECT ITEM HOVER GLOW
+===================================================== */
+$$('.project-item').forEach(item => {
+  item.addEventListener('mousemove', e => {
+    const rect = item.getBoundingClientRect();
+    item.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+    item.style.setProperty('--my', (e.clientY - rect.top)  + 'px');
+  });
+});
+
+/* =====================================================
+   TICKER: pause on hover, stop on reduced-motion
+===================================================== */
+const track = $('.descriptor-track');
+if (track && noMotion) track.style.animation = 'none';
+
+/* =====================================================
+   HERO ENTRANCE SEQUENCE
+===================================================== */
+function forceShowAll() {
+  // Safety net: make absolutely everything visible regardless of JS timing
+  $$('.letter').forEach(el => el.classList.add('visible'));
+  ['.hero-eyebrow','.hero-role-line','.hero-descriptor',
+   '.hero-bio','.hero-featured','.btn-primary',
+   '.hero-stats','.hero-scroll','.hero-badge'
+  ].forEach(sel => { const el = $(sel); if (el) el.classList.add('visible'); });
+}
+
+window.addEventListener('load', () => {
+  if (noMotion) {
+    forceShowAll();
+    checkReveal();
+    setTimeout(typeRole, 400);
+    return;
+  }
+
+  // Stagger letters in
+  $$('.letter').forEach((l, i) => setTimeout(() => l.classList.add('visible'), 80 + i * 50));
+
+  const heroSeq = [
+    { sel: '.hero-eyebrow',    delay: 80   },
+    { sel: '.hero-role-line',  delay: 580  },
+    { sel: '.hero-descriptor', delay: 740  },
+    { sel: '.hero-bio',        delay: 460  },
+    { sel: '.hero-featured',   delay: 640  },
+    { sel: '.btn-primary',     delay: 800  },
+    { sel: '.hero-stats',      delay: 940  },
+    { sel: '.hero-scroll',     delay: 1080 },
+    { sel: '.hero-badge',      delay: 1180 },
+  ];
+  heroSeq.forEach(({ sel, delay }) => {
+    const el = $(sel);
+    if (el) setTimeout(() => el.classList.add('visible'), delay);
+  });
+
+  // Safety net: if anything still invisible after 3s, force show everything
+  setTimeout(forceShowAll, 3000);
+
+  setTimeout(typeRole, 860);
+  checkReveal();
+});
+</script>
 </body>
 </html>
