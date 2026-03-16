@@ -288,26 +288,15 @@ h1 {
   /* Prevent any word from overflowing its column */
   width: 100%;
 }
-.h1-word em { font-style: italic; }
 
-/*
-  KEY PRINCIPLE: font-size is set on the .h1-word (block),
-  and .letter inherits it via font-size: 1em.
-  This means ONE place to change size per word.
-
-  We use min(Xvw, Yrem) so:
-  — on wide screens  → capped at Yrem (won't go huge)
-  — on narrow screens → scales with viewport (won't overflow)
-
-  Calibration for the grid column (~45vw on desktop, 100vw on mobile):
-  "DevSam"  = 6 chars → ~7vw per char fits in 45vw column → min(7.2vw, 6.5rem)
-  "my"      = 2 chars → smaller accent → min(5.8vw, 5rem)
-  "Mwendwa" = 7 chars → min(6.2vw, 5.8rem)
-*/
-
-/* ── Line 1: DevSam — bold, ink ── */
+/* ── Line 1: Sammy — bold ink ── */
 .word-first {
-  font-size: min(7.2vw, 6.5rem);
+  font-size: clamp(3.5rem, 10vw, 6.5rem);
+  letter-spacing: -0.02em;
+  transition: letter-spacing 0.4s ease;
+}
+.word-first:hover {
+  letter-spacing: 0.04em;
 }
 .word-first .letter {
   font-size: 1em;
@@ -315,23 +304,26 @@ h1 {
 }
 .word-first .letter:hover { color: var(--amber) !important; }
 
-/* ── Line 2: "my" — amber italic accent, stepped smaller ── */
-.word-accent {
-  font-size: min(6vw, 5.2rem);
-  padding-left: 0.1em;        /* subtle indent = visual staircase */
-  margin-top: -0.02em;
-  margin-bottom: -0.02em;
+/* ── Amber dot connector between Sammy and Kasango ── */
+.dot-connector {
+  display: inline-block;
+  width: 0.18em;
+  height: 0.18em;
+  border-radius: 50%;
+  background: var(--amber);
+  margin-left: 0.25em;
+  vertical-align: middle;
+  opacity: 0.9;
 }
-.word-accent em  { color: var(--amber2); }
-.word-accent .letter {
-  font-size: 1em;
-  color: var(--amber2);
-}
-.word-accent .letter:hover { color: var(--ink) !important; }
 
-/* ── Line 3: Mwendwa — forest italic ── */
+/* ── Line 2: Kasango — forest italic, slightly larger ── */
 .word-last {
-  font-size: min(6.2vw, 5.8rem);
+  font-size: clamp(3.8rem, 11vw, 7rem);
+  letter-spacing: -0.01em;
+  transition: letter-spacing 0.4s ease;
+}
+.word-last:hover {
+  letter-spacing: 0.03em;
 }
 .word-last em { color: var(--forest); }
 .word-last .letter {
@@ -340,27 +332,18 @@ h1 {
 }
 .word-last .letter:hover { color: var(--amber) !important; }
 
-/* ── Shared letter animation (no font-size here — inherited from word) ── */
-.letter {
+/* ── Title block — hover-to-reveal ── */
+.title-block {
+  cursor: pointer;
+  margin-top: 1rem;
+  letter-spacing: 0.15em;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.title-text {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(55%) rotate(4deg);
-  transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
-  will-change: transform, opacity;
-  /* CSS safety-net: show after 1.8s even if JS fails */
-  animation: letterFallback 0s 1.8s forwards;
-}
-@keyframes letterFallback {
-  to { opacity: 1; transform: translateY(0) rotate(0deg); }
-}
-.letter.visible {
-  opacity: 1;
-  transform: translateY(0) rotate(0deg);
-  animation: none;
-}
-.letter:hover {
-  transform: translateY(-8px) rotate(-3deg) scale(1.1) !important;
-  transition: transform 0.2s var(--ease-spring), color 0.2s !important;
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
 .tag-fader-container {
