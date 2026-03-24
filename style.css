@@ -37,7 +37,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.7;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -58,27 +58,11 @@ img { max-width: 100%; display: block; }
 
 /* ─── CURSOR ──────────────────────────────────────────── */
 .cursor, .cursor-follower {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  will-change: left, top;
+  display: none;
 }
 .cursor {
-  width: 8px; height: 8px;
-  background: var(--amber);
-  transition: width .18s, height .18s, background .18s, opacity .18s;
+  cursor: auto;
 }
-.cursor-follower {
-  width: 40px; height: 40px;
-  border: 1.5px solid var(--amber);
-  opacity: 0.4;
-  transition: opacity .3s, width .3s, height .3s, border-color .3s;
-  mix-blend-mode: multiply;
-}
-.cursor.h { width: 16px; height: 16px; background: var(--forest); }
-.cursor-follower.h { width: 60px; height: 60px; opacity: 0.18; border-color: var(--forest); }
 
 .cursor-label {
   position: fixed;
