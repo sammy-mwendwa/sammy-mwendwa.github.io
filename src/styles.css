@@ -1,0 +1,232 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Amber + Steel design system — Sammy M. Kasango, Digital Systems Engineer.
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 3px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand surfaces */
+  --color-graphite: var(--graphite);
+  --color-graphite-deep: var(--graphite-deep);
+  --color-steel: var(--steel);
+  --color-steel-light: var(--steel-light);
+  --color-ivory: var(--ivory);
+  --color-ivory-soft: var(--ivory-soft);
+  --color-amber: var(--amber);
+  --color-amber-bright: var(--amber-bright);
+  --color-amber-muted: var(--amber-muted);
+  --color-tech-green: var(--tech-green);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --graphite: oklch(0.205 0.005 173.9);
+  --graphite-deep: oklch(0.243 0.007 164.4);
+  --steel: oklch(0.346 0.01 164.4);
+  --steel-light: oklch(0.537 0.012 158.6);
+  --ivory: oklch(0.965 0.01 87.5);
+  --ivory-soft: oklch(0.943 0.011 89.7);
+  --amber: oklch(0.695 0.127 76.5);
+  --amber-bright: oklch(0.766 0.138 79.9);
+  --amber-muted: oklch(0.617 0.109 77.9);
+  --tech-green: oklch(0.506 0.04 155);
+
+  --background: var(--ivory);
+  --foreground: var(--graphite);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--graphite);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--graphite);
+  --primary: var(--amber);
+  --primary-foreground: var(--graphite);
+  --secondary: var(--ivory-soft);
+  --secondary-foreground: var(--graphite);
+  --muted: var(--ivory-soft);
+  --muted-foreground: var(--steel-light);
+  --accent: var(--amber);
+  --accent-foreground: var(--graphite);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.205 0.005 173.9 / 12%);
+  --input: oklch(0.205 0.005 173.9 / 18%);
+  --ring: var(--amber);
+
+  --shadow-card: 0 1px 2px oklch(0.205 0.005 173.9 / 6%), 0 18px 40px -28px oklch(0.205 0.005 173.9 / 30%);
+  --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark environments (hero, stack, case study, footer) */
+.on-dark {
+  --background: var(--graphite);
+  --foreground: var(--ivory);
+  --card: var(--graphite-deep);
+  --card-foreground: var(--ivory);
+  --muted-foreground: oklch(0.72 0.012 158.6);
+  --border: oklch(0.965 0.01 87.5 / 12%);
+  --input: oklch(0.965 0.01 87.5 / 16%);
+  --secondary: var(--graphite-deep);
+  --secondary-foreground: var(--ivory);
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--amber);
+    color: var(--graphite);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+  }
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Signature amber line: 01 / ABOUT ───────── */
+@utility amber-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      var(--amber),
+      color-mix(in oklab, var(--amber) 12%, transparent)
+    );
+  }
+}
+
+@utility blueprint-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, currentColor 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, currentColor 7%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@utility premium-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-card);
+  transition:
+    border-color 320ms var(--ease-premium),
+    transform 320ms var(--ease-premium),
+    box-shadow 320ms var(--ease-premium);
+  &:hover {
+    border-color: color-mix(in oklab, var(--amber) 55%, transparent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 520ms var(--ease-premium),
+    transform 520ms var(--ease-premium);
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@utility status-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--amber-bright);
+  animation: status-pulse 2.4s var(--ease-premium) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
